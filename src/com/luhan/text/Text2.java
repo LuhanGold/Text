@@ -17,4 +17,9 @@ public class Text2 {
 		//请求垃圾收集
 		Runtime.getRuntime().gc();
 	}
+	
+	/**
+	 * 用来截取字符串
+	 */
+	public void subString(){}
 }

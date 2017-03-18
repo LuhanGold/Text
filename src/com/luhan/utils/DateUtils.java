@@ -1,8 +1,10 @@
 package com.luhan.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.luhan.Constant;
 import com.luhan.costom.CustomException;
 
 /** 
@@ -15,8 +17,7 @@ import com.luhan.costom.CustomException;
 public class DateUtils {
 	//设置静态的SimpleDateFormat对象
 	private static SimpleDateFormat format;
-	//设置日期格式的常量
-	private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+	
 	
 	
 	/**
@@ -27,7 +28,7 @@ public class DateUtils {
 		//获得系统当前时间
 		Date date = new Date(System.currentTimeMillis());
 		//获取format对象，并设置format对象要转化日期的格式
-		format = new SimpleDateFormat(DATE_FORMAT);
+		format = new SimpleDateFormat(Constant.DATE_FORMAT);
 		
 		return format.format(date);
 	}
@@ -57,5 +58,30 @@ public class DateUtils {
 		format = new SimpleDateFormat(dateFormat);
 		
 		return format.format(date);
+	}
+	
+	/**
+	 * 将时间戳转化为日期
+	 * @param timesStamp
+	 * @return 转化之后的日期，格式为String
+	 */
+	public static String timesStampToDate(Long timesStamp){
+		//需要转化为什么类型
+		format = new SimpleDateFormat(Constant.DATE_FORMAT);
+		//将参数时间戳进行转换
+		String time = format.format(timesStamp);
+		return time;
+	}
+	
+	/**
+	 * 将指定的日期转化为时间戳
+	 * @param date 指定的日期
+	 * @return 转化之后的结果
+	 * @throws ParseException 可能会抛出传入的不是正确格式的日期
+	 */
+	public static Long dateToTimestamp(String date) throws ParseException{
+		format = new SimpleDateFormat(Constant.DATE_FORMAT);
+		Date d = format.parse(date);
+		return d.getTime()/1000;
 	}
 }

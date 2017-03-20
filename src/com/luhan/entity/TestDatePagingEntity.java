@@ -9,9 +9,9 @@ package com.luhan.entity;
 */
 public class TestDatePagingEntity {
 	
-	private String name;
-	private String sex;
-	private int age;
+	private String name;//Sting类型的姓名
+	private String sex;//Sting类型的性别
+	private int age;//int类型的年龄
 	
 	public String getName() {
 		return name;

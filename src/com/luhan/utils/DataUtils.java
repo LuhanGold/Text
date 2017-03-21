@@ -1,8 +1,13 @@
 package com.luhan.utils;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.luhan.Constant;
+import com.luhan.costom.CustomException;
 
 /** 
 * @ClassName: DataUtils 
@@ -85,5 +90,69 @@ public class DataUtils {
 		result = Math.ceil(result);
 		
 		return (int)result;
+	}
+	/**
+	 * 求出两数的百分比值，默认精确到百分比的后两位
+	 * @param num1 需要计算的值1
+	 * @param num2 需要计算的值2
+	 * @return 返回两数的百分比 带有%符号的，为String类型
+	 */
+	public static String countPercentReturnString(double num1,double num2){
+		String result = "";//定义接收最后两数百分比的结果
+		//TODO 进行null判断
+		
+		//方法一:
+//		DecimalFormat format = new DecimalFormat("##%");
+		
+		//方法二:
+		NumberFormat format = NumberFormat.getInstance();
+		//设置保留小数点后几位
+		format.setMaximumFractionDigits(2);
+		result = format.format((num1 / num2) * 100);
+		return result + "%";
+	}
+	/**
+	 * 求出两数的百分比值
+	 * @param num1 需要计算的值1
+	 * @param num2 需要计算的值2
+	 * @param digits 精确到多少位
+	 * @return 返回两数的百分比 带有%符号的，为String类型
+	 * @throws CustomException 可能会抛出null异常
+	 */
+	public static String countPercentReturnString(double num1,double num2,int digits) throws CustomException{
+		String result = "";//定义接收最后两数百分比的结果
+		//进行null判断
+		if((Object)num1 == null || (Object)num2 == null || (Object)digits == null){
+			throw new CustomException(CustomException.NULLVALUEEXCEPTION);
+		}
+		if(digits < 0){
+			digits = 0;
+		}
+		//方法一:
+//		DecimalFormat format = new DecimalFormat("##%");
+		//方法二:
+		NumberFormat format = NumberFormat.getInstance();
+		//设置保留小数点后几位
+		format.setMaximumFractionDigits(digits);
+		result = format.format((num1 / num2) * 100);
+		return result + "%";
+	}
+	/**
+	 * 求出两数的百分比值
+	 * @param num1 需要计算的值1
+	 * @param num2 需要计算的值2
+	 * @return 返回两数的百分比不带有%符号的，为Int类型
+	 */
+	public static int countPercentReturnInt(double num1,double num2){
+		String result = "";//定义接收最后两数百分比的结果
+		//TODO 进行null判断
+		
+		DecimalFormat format = new DecimalFormat("##%");
+		result = format.format(num1 / num2);
+		
+		//进行截取字符串，去掉最后的%，然后进行转换成int类型
+		result = result.substring(0, result.length()-1);
+		
+		return Integer.parseInt(result);
 	}
 }

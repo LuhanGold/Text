@@ -3,10 +3,7 @@ package com.luhan.utils;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import com.luhan.Constant;
 import com.luhan.costom.CustomException;
 
 /** 
@@ -14,10 +11,12 @@ import com.luhan.costom.CustomException;
 * @Description: (数据工具类) 
 * @author Luhan 
 * @date 2017年3月18日 下午5:14:48 
-*  
 */
 public class DataUtils {
 	
+	//将构造方法设为私有的
+	private DataUtils(){
+	}
 	/**
 	 * 数据集合的分页方法，根据传入总共的数据跟页码，返回页码所需要显示多少条的数据
 	 * <BR/>采用泛型的方法，即为，list中为什么类型的数据就返回什么类型的数据
@@ -44,6 +43,7 @@ public class DataUtils {
 		if((Object)dataSize == null){//当传入过来的dataSize为null时，先进行赋值操作
 			dataSize = 1;
 		}
+		//判断下传入过来的页码是小于等于0的时候，就讲页码设为第一页
 		if(pageNo <= 0){
 			pageNo = 1;
 		}

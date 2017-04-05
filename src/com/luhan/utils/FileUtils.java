@@ -3,8 +3,17 @@
  */
 package com.luhan.utils;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 import com.luhan.costom.CustomException;
 
@@ -48,5 +57,73 @@ public class FileUtils {
 			});
 			return files;
 		}
+	}
+	/**
+	 * 读取txt文件里面的内容
+	 * @param filePath 文件地址
+	 * @return 返回读取后的内容
+	 * @throws CustomException 抛出不是文件异常
+	 * @throws IOException 
+	 */
+	public static String readFile(String filePath) throws CustomException, IOException{
+		File file = new File(filePath);
+		if(!file.exists()){
+			throw new CustomException("没有这个文件");
+		}
+		//用来存储文件里面读取的内容
+		StringBuffer content = new StringBuffer();
+		//用来保存文件读取的一行内容
+		String tempstr = "";
+		//文件读取流
+		FileInputStream inputStream = new FileInputStream(file);
+		//文件读取操作对象流,设置读取的编码格式为GBK
+		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream,"GBK"));
+		//循环读取，如果当读取到的内容为null是就停止读取
+		while((tempstr=reader.readLine()) != null){
+			content.append(tempstr);
+		}
+		
+		//关闭读取流
+		reader.close();
+		inputStream.close();
+		
+		//最后返回读取的内容
+		return content.toString();
+	}
+	/**
+	 * 写文件的方法
+	 * @param filePath 需要写到那个文件上
+	 * @param content 写的内容是什么
+	 * @param isReplace 是否追加到已经有的内容后面，默认是的
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 */
+	public static void writeFile(String filePath,String content,boolean isReplace) throws UnsupportedEncodingException, IOException{
+		//通过传入的文件路径来新建一个文件
+		File file = new File(filePath);
+		//判断有没有这个文件，没有则则创建
+		if(!file.exists()){
+			file.createNewFile();
+		}
+		//获取文件写流
+		FileOutputStream outputStream = new FileOutputStream(file,isReplace);
+		//获取文件写的操作对象
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
+		//写文件内容
+		writer.write(content);
+
+		//关闭流
+		writer.flush();
+		writer.close();
+	}
+	/**
+	 * 文件写内容
+	 * @param filePath 需要写到那个文件上
+	 * @param content 写的内容是什么
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 */
+	public static void writeFile(String filePath,String content) throws UnsupportedEncodingException, IOException{
+		writeFile(filePath,content,true);
 	}
 }

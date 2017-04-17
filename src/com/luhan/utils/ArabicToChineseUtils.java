@@ -8,7 +8,7 @@ package com.luhan.utils;
  * @date   2017年3月23日 下午6:09:58
  */
 public class ArabicToChineseUtils {
-	static String[] units = { "", "十", "百", "千", "万", "十万", "百万", d"千万", "亿", "十亿", "百亿", "千亿", "万亿" };
+	static String[] units = { "", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿" };
     static char[] numArray = { '零', '一', '二', '三', '四', '五', '六', '七', '八', '九' };
 //    public static void main(String[] args) {
 //        int num = 245000006;

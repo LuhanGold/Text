@@ -3,7 +3,9 @@ package com.luhan.utils;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 import com.luhan.costom.CustomException;
 
 /** 
@@ -14,6 +16,15 @@ import com.luhan.costom.CustomException;
 */
 public class DataUtils {
 	
+	
+	private static final String[] SHIFTINT = {
+			"356","156","845","548","624","138","454","666","715","056",
+			"987","512","414","524","124","645","123","654","423","145",
+			"002","988","667","998","555","222"
+			}; 
+	private static final String[] SHIFTCHAR = {
+			"agf","jnn","cad","ewe","vxc","asd","iui","klk","uil","xxz"
+	}; 
 	//将构造方法设为私有的
 	private DataUtils(){
 	}
@@ -218,5 +229,294 @@ public class DataUtils {
 	      }
 	      // 判断随机码是否相等
 	      return random[total % 11] == cardID.charAt(17);
+	}
+	/**将多个数组合并成一个数组
+	 * @author luhan
+	 * @param firstAry 
+	 * @param ary
+	 * @return 返回合并之后的数组
+	 */
+	@SuppressWarnings("all")
+	public static <F> F[] concat(F[] firstAry,F[]... ary){
+		//定义需要合并数组的总长度
+		int aryLength = firstAry.length;
+		for (F[] fs : ary) {
+			aryLength += fs.length;
+		}
+		//定义合并之后的数组
+		F[] result = Arrays.copyOf(firstAry,aryLength);
+		int offset = firstAry.length;  
+		  for (F[] array : ary) {  
+		    System.arraycopy(array, 0, result, offset, array.length);
+		    offset += array.length;  
+		}
+		return result;
+	}
+	/**将字符串进行加密
+	 * @author luhan
+	 * @param orgStr 加密的字符串
+	 * @return 返回加密后的字符串
+	 */
+	public static String encrypt(String orgStr){
+		StringBuffer buffer = new StringBuffer();
+		char[] chars = orgStr.toCharArray();
+		for(char c : chars){
+			switch (c) {
+			case 'a':
+				buffer.append(SHIFTINT[0]);
+				break;
+			case 'b':
+				buffer.append(SHIFTINT[1]);
+				break;
+			case 'c':
+				buffer.append(SHIFTINT[2]);
+				break;
+			case 'd':
+				buffer.append(SHIFTINT[3]);
+				break;
+			case 'e':
+				buffer.append(SHIFTINT[4]);
+				break;
+			case 'f':
+				buffer.append(SHIFTINT[5]);
+				break;
+			case 'g':
+				buffer.append(SHIFTINT[6]);
+				break;
+			case 'h':
+				buffer.append(SHIFTINT[7]);
+				break;
+			case 'i':
+				buffer.append(SHIFTINT[8]);
+				break;
+			case 'j':
+				buffer.append(SHIFTINT[9]);
+				break;
+			case 'k':
+				buffer.append(SHIFTINT[10]);
+				break;
+			case 'l':
+				buffer.append(SHIFTINT[11]);
+				break;
+			case 'm':
+				buffer.append(SHIFTINT[12]);
+				break;
+			case 'n':
+				buffer.append(SHIFTINT[13]);
+				break;
+			case 'o':
+				buffer.append(SHIFTINT[14]);
+				break;
+			case 'p':
+				buffer.append(SHIFTINT[15]);
+				break;
+			case 'q':
+				buffer.append(SHIFTINT[16]);
+				break;
+			case 'r':
+				buffer.append(SHIFTINT[17]);
+				break;
+			case 's':
+				buffer.append(SHIFTINT[18]);
+				break;
+			case 't':
+				buffer.append(SHIFTINT[19]);
+				break;
+			case 'u':
+				buffer.append(SHIFTINT[20]);
+				break;
+			case 'v':
+				buffer.append(SHIFTINT[21]);
+				break;
+			case 'w':
+				buffer.append(SHIFTINT[22]);
+				break;
+			case 'x':
+				buffer.append(SHIFTINT[23]);
+				break;
+			case 'y':
+				buffer.append(SHIFTINT[24]);
+				break;
+			case 'z':
+				buffer.append(SHIFTINT[25]);
+				break;
+			case '0':
+				buffer.append(SHIFTCHAR[0]);
+				break;
+			case '1':
+				buffer.append(SHIFTCHAR[1]);
+				break;
+			case '2':
+				buffer.append(SHIFTCHAR[2]);
+				break;
+			case '3':
+				buffer.append(SHIFTCHAR[3]);
+				break;
+			case '4':
+				buffer.append(SHIFTCHAR[4]);
+				break;
+			case '5':
+				buffer.append(SHIFTCHAR[5]);
+				break;
+			case '6':
+				buffer.append(SHIFTCHAR[6]);
+				break;
+			case '7':
+				buffer.append(SHIFTCHAR[7]);
+				break;
+			case '8':
+				buffer.append(SHIFTCHAR[8]);
+				break;
+			case '9':
+				buffer.append(SHIFTCHAR[9]);
+				break;
+			default:
+				buffer.append(c);
+			}
+			
+		}
+		
+		return buffer.toString();
+	}
+	
+	/**解密操作
+	 * @author luhan
+	 * @param orgStr 需要解密的字符串
+	 * @return 返回解密后真实的字符串
+	 */
+	public static String decode(String orgStr){
+		char[] chars = orgStr.toCharArray();
+		int index = 0;
+		String str = "";
+		String [] strs = new String[orgStr.length()/3];
+		for(int i = 0;i<chars.length;i++){
+			str += chars[i]; 
+			if(((i+1)%3) == 0){
+				strs[index] = str;
+				index++;
+				str = "";
+			}
+		}
+		return shift(strs);
+	}
+	
+	private static String shift(String[] strs){
+		StringBuffer buffer = new StringBuffer();
+		for(String s : strs){
+			switch (s) {
+			case "356":
+				buffer.append("a");
+				break;
+			case "156":
+				buffer.append("b");
+				break;
+			case "845":
+				buffer.append("c");
+				break;
+			case "548":
+				buffer.append("d");
+				break;
+			case "624":
+				buffer.append("e");
+				break;
+			case "138":
+				buffer.append("f");
+				break;
+			case "454":
+				buffer.append("g");
+				break;
+			case "666":
+				buffer.append("h");
+				break;
+			case "715":
+				buffer.append("i");
+				break;
+			case "056":
+				buffer.append("j");
+				break;
+			case "987":
+				buffer.append("k");
+				break;
+			case "512":
+				buffer.append("l");
+				break;
+			case "414":
+				buffer.append("m");
+				break;
+			case "524":
+				buffer.append("n");
+				break;
+			case "124":
+				buffer.append("o");
+				break;
+			case "645":
+				buffer.append("p");
+				break;
+			case "123":
+				buffer.append("q");
+				break;
+			case "654":
+				buffer.append("r");
+				break;
+			case "423":
+				buffer.append("s");
+				break;
+			case "145":
+				buffer.append("t");
+				break;
+			case "002":
+				buffer.append("u");
+				break;
+			case "988":
+				buffer.append("v");
+				break;
+			case "667":
+				buffer.append("w");
+				break;
+			case "998":
+				buffer.append("x");
+				break;
+			case "555":
+				buffer.append("y");
+				break;
+			case "222":
+				buffer.append("z");
+				break;
+			case "agf":
+				buffer.append("0");
+				break;
+			case "jnn":
+				buffer.append("1");
+				break;
+			case "cad":
+				buffer.append("2");
+				break;
+			case "ewe":
+				buffer.append("3");
+				break;
+			case "vxc":
+				buffer.append("4");
+				break;
+			case "asd":
+				buffer.append("5");
+				break;
+			case "iui":
+				buffer.append("6");
+				break;
+			case "klk":
+				buffer.append("7");
+				break;
+			case "uil":
+				buffer.append("8");
+				break;
+			case "xxz":
+				buffer.append("9");
+				break;
+			default:
+				buffer.append(s);
+				break;
+			}
+		}
+		return buffer.toString();
 	}
 }

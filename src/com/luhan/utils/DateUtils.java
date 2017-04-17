@@ -84,4 +84,16 @@ public class DateUtils {
 		Date d = format.parse(date);
 		return d.getTime()/1000;
 	}
+	/**将制定日期，制定日期的格式转化为时间戳
+	 * @author luhan
+	 * @param date 时间
+	 * @param dataFormat 时间的格式
+	 * @return 返回转化为时间戳的字符串
+	 * @throws ParseException
+	 */
+	public static Long dateToTimestamp(String date,String dataFormat) throws ParseException{
+		format = new SimpleDateFormat(dataFormat);
+		Date d = format.parse(date);
+		return d.getTime()/1000;
+	}
 }

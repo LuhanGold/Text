@@ -3,13 +3,13 @@
  */
 package com.luhan.utils;
 
-/**@effect {°¢À­²®Êı×Ö×ª»¯Îªºº×ÖµÄ¹¤¾ßÀà}
+/**@effect {é˜¿æ‹‰ä¼¯æ•°å­—è½¬åŒ–ä¸ºæ±‰å­—çš„å·¥å…·ç±»}
  * @author luhan
- * @date   2017Äê3ÔÂ23ÈÕ ÏÂÎç6:09:58
+ * @date   2017å¹´3æœˆ23æ—¥ ä¸‹åˆ6:09:58
  */
 public class ArabicToChineseUtils {
-	static String[] units = { "", "Ê®", "°Ù", "Ç§", "Íò", "Ê®Íò", "°ÙÍò", "Ç§Íò", "ÒÚ", "Ê®ÒÚ", "°ÙÒÚ", "Ç§ÒÚ", "ÍòÒÚ" };
-    static char[] numArray = { 'Áã', 'Ò»', '¶ş', 'Èı', 'ËÄ', 'Îå', 'Áù', 'Æß', '°Ë', '¾Å' };
+	static String[] units = { "", "å", "ç™¾", "åƒ", "ä¸‡", "åä¸‡", "ç™¾ä¸‡", "åƒä¸‡", "äº¿", "åäº¿", "ç™¾äº¿", "åƒäº¿", "ä¸‡äº¿" };
+    static char[] numArray = { 'é›¶', 'ä¸€', 'äºŒ', 'ä¸‰', 'å››', 'äº”', 'å…­', 'ä¸ƒ', 'å…«', 'ä¹' };
 //    public static void main(String[] args) {
 //        int num = 245000006;
 //        String numStr = foematInteger(1);
@@ -20,9 +20,9 @@ public class ArabicToChineseUtils {
 //        System.out.println("decimal= " + decimal + ", decStr: " + decStr);
 //    }
     /**
-     * ½«°¢À­²®Êı×Ö×ª»¯Îªºº×Ö
-     * @param num ĞèÒª×ª»¯µÄ°¢À­²®Êı×Ö
-     * @return ·µ»Ø¾­¹ı×ª»¯Ö®ºó¶ÔÓ¦µÄºº×Ö
+     * å°†é˜¿æ‹‰ä¼¯æ•°å­—è½¬åŒ–ä¸ºæ±‰å­—
+     * @param num éœ€è¦è½¬åŒ–çš„é˜¿æ‹‰ä¼¯æ•°å­—
+     * @return è¿”å›ç»è¿‡è½¬åŒ–ä¹‹åå¯¹åº”çš„æ±‰å­—
      */
     private static String foematInteger(int num) {
         char[] val = String.valueOf(num).toCharArray();

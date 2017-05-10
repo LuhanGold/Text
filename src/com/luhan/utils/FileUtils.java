@@ -16,38 +16,35 @@ import java.io.UnsupportedEncodingException;
 
 import com.luhan.costom.CustomException;
 
-/**@effect {ÎÄ¼şÏà¹ØµÄ¹¤¾ßÀà}
+/**@effect {æ–‡ä»¶ç›¸å…³çš„å·¥å…·ç±»}
  * @author luhan
- * @date   2017Äê4ÔÂ1ÈÕ ÏÂÎç3:06:46
+ * @date   2017å¹´4æœˆ1æ—¥ ä¸‹åˆ3:06:46
  */
 public class FileUtils {
 
-	//Ë½ÓĞµÄ¹¹Ôì·½·¨
+	//ç§æœ‰çš„æ„é€ æ–¹æ³•
 	private FileUtils(){};
 	
 	/**
-	 * Í¨¹ıÖ¸¶¨ÎÄ¼ş¼ĞÏÂµÄµÄÖ¸¶¨ºó×ºÃû³ÆµÄÎÄ¼ş
-	 * @param filePath ÎÄ¼ş¼ĞÂ·¾¶
-	 * @param suffixName ºó×ºÃû³Æ
-	 * @return	·µ»Ø×°ÓĞÌõ¼şÂú×ãµÄÎÄ¼şµÄÊı×é
-	 * @throws CustomException Å×³ö²»ÊÇÎÄ¼ş¼ĞµÄÒì³£
+	 * é€šè¿‡æŒ‡å®šæ–‡ä»¶å¤¹ä¸‹çš„çš„æŒ‡å®šåç¼€åç§°çš„æ–‡ä»¶
+	 * @param filePath æ–‡ä»¶å¤¹è·¯å¾„
+	 * @param suffixName åç¼€åç§°
+	 * @return	è¿”å›è£…æœ‰æ¡ä»¶æ»¡è¶³çš„æ–‡ä»¶çš„æ•°ç»„
+	 * @throws CustomException æŠ›å‡ºä¸æ˜¯æ–‡ä»¶å¤¹çš„å¼‚å¸¸
 	 */
 	public static File[] getFilesBySuffixName(String filePath,String suffixName) throws CustomException{
-		//TODO ²ÎÊıĞ£Ñé
-		
-		//´´½¨Ò»¸ö¿ÕµÄÎÄ¼şµÄÊı×éÓÃÀ´×°²éÕÒµ½Âú×ãÌõ¼şµÄÎÄ¼ş
+		//åˆ›å»ºä¸€ä¸ªç©ºçš„æ–‡ä»¶çš„æ•°ç»„ç”¨æ¥è£…æŸ¥æ‰¾åˆ°æ»¡è¶³æ¡ä»¶çš„æ–‡ä»¶
 		File[] files = new File[0];
-		
-		//Í¨¹ıÎÄ¼şÂ·¾¶»ñÈ¡ÎÄ¼ş
+		//é€šè¿‡æ–‡ä»¶è·¯å¾„è·å–æ–‡ä»¶
 		File folder = new File(filePath);
-		//ÅĞ¶ÏÕâ¸öÎÄ¼şÊÇ²»ÊÇÎÄ¼ş¼Ğ£¬Èç¹ûÊÇÎÄ¼ş¼Ğ¾Í¼ÌĞø£¬·ñÔòÖ±½Óreturn
+		//åˆ¤æ–­è¿™ä¸ªæ–‡ä»¶æ˜¯ä¸æ˜¯æ–‡ä»¶å¤¹ï¼Œå¦‚æœæ˜¯æ–‡ä»¶å¤¹å°±ç»§ç»­ï¼Œå¦åˆ™ç›´æ¥return
 		if(!folder.isDirectory()){
-			throw new CustomException("ÇëÊäÈëÎÄ¼ş¼ĞµÄÂ·¾¶");
+			throw new CustomException("è¯·è¾“å…¥æ–‡ä»¶å¤¹çš„è·¯å¾„");
 		}else{
 			files = folder.listFiles(new FileFilter() {
 				@Override
 				public boolean accept(File pathname) {
-					//ÅĞ¶ÏÊÇ²»ÊÇÎÄ¼ş£¬²¢ÇÒºó×ºÊÇ²»ÊÇÂú×ãÒªÇó
+					//åˆ¤æ–­æ˜¯ä¸æ˜¯æ–‡ä»¶ï¼Œå¹¶ä¸”åç¼€æ˜¯ä¸æ˜¯æ»¡è¶³è¦æ±‚
 					if(pathname.isFile() && pathname.getName().indexOf(suffixName) > -1){
 						return true;
 					}
@@ -58,67 +55,67 @@ public class FileUtils {
 		}
 	}
 	/**
-	 * ¶ÁÈ¡txtÎÄ¼şÀïÃæµÄÄÚÈİ
-	 * @param filePath ÎÄ¼şµØÖ·
-	 * @return ·µ»Ø¶ÁÈ¡ºóµÄÄÚÈİ
-	 * @throws CustomException Å×³ö²»ÊÇÎÄ¼şÒì³£
+	 * è¯»å–txtæ–‡ä»¶é‡Œé¢çš„å†…å®¹
+	 * @param filePath æ–‡ä»¶åœ°å€
+	 * @return è¿”å›è¯»å–åçš„å†…å®¹
+	 * @throws CustomException æŠ›å‡ºä¸æ˜¯æ–‡ä»¶å¼‚å¸¸
 	 * @throws IOException 
 	 */
 	public static String readFile(String filePath) throws CustomException, IOException{
 		File file = new File(filePath);
 		if(!file.exists()){
-			throw new CustomException("Ã»ÓĞÕâ¸öÎÄ¼ş");
+			throw new CustomException("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶");
 		}
-		//ÓÃÀ´´æ´¢ÎÄ¼şÀïÃæ¶ÁÈ¡µÄÄÚÈİ
+		//ç”¨æ¥å­˜å‚¨æ–‡ä»¶é‡Œé¢è¯»å–çš„å†…å®¹
 		StringBuffer content = new StringBuffer();
-		//ÓÃÀ´±£´æÎÄ¼ş¶ÁÈ¡µÄÒ»ĞĞÄÚÈİ
+		//ç”¨æ¥ä¿å­˜æ–‡ä»¶è¯»å–çš„ä¸€è¡Œå†…å®¹
 		String tempstr = "";
-		//ÎÄ¼ş¶ÁÈ¡Á÷
+		//æ–‡ä»¶è¯»å–æµ
 		FileInputStream inputStream = new FileInputStream(file);
-		//ÎÄ¼ş¶ÁÈ¡²Ù×÷¶ÔÏóÁ÷,ÉèÖÃ¶ÁÈ¡µÄ±àÂë¸ñÊ½ÎªGBK
+		//æ–‡ä»¶è¯»å–æ“ä½œå¯¹è±¡æµ,è®¾ç½®è¯»å–çš„ç¼–ç æ ¼å¼ä¸ºGBK
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream,"GBK"));
-		//Ñ­»·¶ÁÈ¡£¬Èç¹ûµ±¶ÁÈ¡µ½µÄÄÚÈİÎªnullÊÇ¾ÍÍ£Ö¹¶ÁÈ¡
+		//å¾ªç¯è¯»å–ï¼Œå¦‚æœå½“è¯»å–åˆ°çš„å†…å®¹ä¸ºnullæ˜¯å°±åœæ­¢è¯»å–
 		while((tempstr=reader.readLine()) != null){
 			content.append(tempstr);
 		}
 		
-		//¹Ø±Õ¶ÁÈ¡Á÷
+		//å…³é—­è¯»å–æµ
 		reader.close();
 		inputStream.close();
 		
-		//×îºó·µ»Ø¶ÁÈ¡µÄÄÚÈİ
+		//æœ€åè¿”å›è¯»å–çš„å†…å®¹
 		return content.toString();
 	}
 	/**
-	 * Ğ´ÎÄ¼şµÄ·½·¨
-	 * @param filePath ĞèÒªĞ´µ½ÄÇ¸öÎÄ¼şÉÏ
-	 * @param content Ğ´µÄÄÚÈİÊÇÊ²Ã´
-	 * @param isReplace ÊÇ·ñ×·¼Óµ½ÒÑ¾­ÓĞµÄÄÚÈİºóÃæ£¬Ä¬ÈÏÊÇµÄ
+	 * å†™æ–‡ä»¶çš„æ–¹æ³•
+	 * @param filePath éœ€è¦å†™åˆ°é‚£ä¸ªæ–‡ä»¶ä¸Š
+	 * @param content å†™çš„å†…å®¹æ˜¯ä»€ä¹ˆ
+	 * @param isReplace æ˜¯å¦è¿½åŠ åˆ°å·²ç»æœ‰çš„å†…å®¹åé¢ï¼Œé»˜è®¤æ˜¯çš„
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 */
 	public static void writeFile(String filePath,String content,boolean isReplace) throws UnsupportedEncodingException, IOException{
-		//Í¨¹ı´«ÈëµÄÎÄ¼şÂ·¾¶À´ĞÂ½¨Ò»¸öÎÄ¼ş
+		//é€šè¿‡ä¼ å…¥çš„æ–‡ä»¶è·¯å¾„æ¥æ–°å»ºä¸€ä¸ªæ–‡ä»¶
 		File file = new File(filePath);
-		//ÅĞ¶ÏÓĞÃ»ÓĞÕâ¸öÎÄ¼ş£¬Ã»ÓĞÔòÔò´´½¨
+		//åˆ¤æ–­æœ‰æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ï¼Œæ²¡æœ‰åˆ™åˆ™åˆ›å»º
 		if(!file.exists()){
 			file.createNewFile();
 		}
-		//»ñÈ¡ÎÄ¼şĞ´Á÷
+		//è·å–æ–‡ä»¶å†™æµ
 		FileOutputStream outputStream = new FileOutputStream(file,isReplace);
-		//»ñÈ¡ÎÄ¼şĞ´µÄ²Ù×÷¶ÔÏó
+		//è·å–æ–‡ä»¶å†™çš„æ“ä½œå¯¹è±¡
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-		//Ğ´ÎÄ¼şÄÚÈİ
+		//å†™æ–‡ä»¶å†…å®¹
 		writer.write(content);
 
-		//¹Ø±ÕÁ÷
+		//å…³é—­æµ
 		writer.flush();
 		writer.close();
 	}
 	/**
-	 * ÎÄ¼şĞ´ÄÚÈİ
-	 * @param filePath ĞèÒªĞ´µ½ÄÇ¸öÎÄ¼şÉÏ
-	 * @param content Ğ´µÄÄÚÈİÊÇÊ²Ã´
+	 * æ–‡ä»¶å†™å†…å®¹
+	 * @param filePath éœ€è¦å†™åˆ°é‚£ä¸ªæ–‡ä»¶ä¸Š
+	 * @param content å†™çš„å†…å®¹æ˜¯ä»€ä¹ˆ
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 */

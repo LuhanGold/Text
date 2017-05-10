@@ -1,9 +1,9 @@
 package com.luhan.test;
 /** 
 * @ClassName: IntegerAndIntTest 
-* @Description: (ÓÃÓÚ¶Ô±ÈintºÍIntgerµÄÇø±ð) 
+* @Description: (ç”¨äºŽå¯¹æ¯”intå’ŒIntgerçš„åŒºåˆ«) 
 * @author Luhan 
-* @date 2017Äê3ÔÂ20ÈÕ ÉÏÎç11:12:56 
+* @date 2017å¹´3æœˆ20æ—¥ ä¸Šåˆ11:12:56 
 */
 public class IntegerAndIntTest{
 
@@ -14,43 +14,43 @@ public class IntegerAndIntTest{
 		
 		int i1 = 128;
 		Integer i2 = 128;
-		System.out.println(i1 == i2);//Êä³ötrue,Ö»ÒªÊÇintºÍInteger½øÐÐ¶Ô±È¶¼Îªtrue
+		System.out.println(i1 == i2);//è¾“å‡ºtrue,åªè¦æ˜¯intå’ŒIntegerè¿›è¡Œå¯¹æ¯”éƒ½ä¸ºtrue
 		
-		System.out.println(">>>>>>>>>>>ÕâÊÇÒ»Ìõ·Ö¸îÏß>>>>>>>>>>>>");
+		System.out.println(">>>>>>>>>>>è¿™æ˜¯ä¸€æ¡åˆ†å‰²çº¿>>>>>>>>>>>>");
 		
 		Integer i3 = 126;
 		Integer i4 = new Integer(126);
-		System.out.println(i3 == i4);//Êä³öfalse,ÒòÎªi4newÁËÒ»¸öÐÂµÄ¶ÔÏó£¬¶øi3ÊÇ´æµ½¶ÑÀïÃæÁË,¶øi4´æµ½ÄÚ´æÖÐ£¬ËùÒÔÁ½¸öµØÖ·²»Ò»ÖÂ
+		System.out.println(i3 == i4);//è¾“å‡ºfalse,å› ä¸ºi4newäº†ä¸€ä¸ªæ–°çš„å¯¹è±¡ï¼Œè€Œi3æ˜¯å­˜åˆ°å †é‡Œé¢äº†,è€Œi4å­˜åˆ°å†…å­˜ä¸­ï¼Œæ‰€ä»¥ä¸¤ä¸ªåœ°å€ä¸ä¸€è‡´
 		
-		System.out.println(">>>>>>>>>>>ÕâÊÇÒ»Ìõ·Ö¸îÏß>>>>>>>>>>>>");
+		System.out.println(">>>>>>>>>>>è¿™æ˜¯ä¸€æ¡åˆ†å‰²çº¿>>>>>>>>>>>>");
 		
 		
-		//Ê¾ÀýÒ»:
+		//ç¤ºä¾‹ä¸€:
 		Integer i5 = 126;
 		Integer i6 = 126;
-		System.out.println(i5 == i6);//Êä³ötrue
+		System.out.println(i5 == i6);//è¾“å‡ºtrue
 		
-		System.out.println(">>>>>>>>>>>ÕâÊÇÒ»Ìõ·Ö¸îÏß>>>>>>>>>>>>");
+		System.out.println(">>>>>>>>>>>è¿™æ˜¯ä¸€æ¡åˆ†å‰²çº¿>>>>>>>>>>>>");
 		
-		//Ê¾Àý¶þ:
+		//ç¤ºä¾‹äºŒ:
 		Integer i7 = 128;
 		Integer i8 = 128;
-		System.out.println(i7 == i8);//Êä³öfalse
-		//Ê¾ÀýÒ»ºÍÊ¾Àý¶þµÄÎªÊ²Ã´´òÓ¡µÄ½á¹û²»Í¬,ÔÚIntegerÀàÖÐ¶ÔÓÚ¸³ÖµÊ±Ê¹ÓÃµÄÔòÊÇInteger.valueOf()·½·¨
-		/**				Integer.valueOf()·½·¨Îª:
-		 * public static Integer valueOf(int i) {//ÆäÖÐlowµÄÖµÎª-128,heightÎª127
+		System.out.println(i7 == i8);//è¾“å‡ºfalse
+		//ç¤ºä¾‹ä¸€å’Œç¤ºä¾‹äºŒçš„ä¸ºä»€ä¹ˆæ‰“å°çš„ç»“æžœä¸åŒ,åœ¨Integerç±»ä¸­å¯¹äºŽèµ‹å€¼æ—¶ä½¿ç”¨çš„åˆ™æ˜¯Integer.valueOf()æ–¹æ³•
+		/**				Integer.valueOf()æ–¹æ³•ä¸º:
+		 * public static Integer valueOf(int i) {//å…¶ä¸­lowçš„å€¼ä¸º-128,heightä¸º127
         	if (i >= IntegerCache.low && i <= IntegerCache.high)
             	return IntegerCache.cache[i + (-IntegerCache.low)];
         	return new Integer(i);
            }
-           	±íÃ÷µÄÒâË¼Îª:IntegerµÄÖµÎªÈç¹ûÔÚ-128~127Ö®¼ä£¬¾Í»á´Ó»º´æÖ®¼äÈ¡³öÀ´£¬¶ø²»ÔÙ·¶Î§Ö®¼äµÄ»°Ôò»áÖØÐÂnewÒ»¸ö
+           	è¡¨æ˜Žçš„æ„æ€ä¸º:Integerçš„å€¼ä¸ºå¦‚æžœåœ¨-128~127ä¹‹é—´ï¼Œå°±ä¼šä»Žç¼“å­˜ä¹‹é—´å–å‡ºæ¥ï¼Œè€Œä¸å†èŒƒå›´ä¹‹é—´çš„è¯åˆ™ä¼šé‡æ–°newä¸€ä¸ª
 		 */
 		/**
-		 * ×Ü½á:intºÍintegerµÄÇø±ð
-		 * 1.integerÎªintµÄ°ü×°Àà
-		 * 2.intºÍinteger½øÐÐ±È¶ÔµÄÊ±ºò¶¼Îªtrue£¬µ±È»ÊÇ¸³ÖµÎªÍ¬Ò»¸öÊý×ÖÊ±
-		 * 3.integerÖ±½Ó¸³ÖµºÍnew³öÀ´½øÐÐ±È¶ÔÎªfalse£¬Ç°Õß´æµ½¶ÑºóÕß´æµ½ÄÚ´æ
-		 * 4.integer½øÐÐ±È¶ÔÔÚ-128~127Ö®¼äÎªtrueÆäÓàÎªfalse£¬ÔÚ·¶Î§ÄÚinteger»á½øÐÐ»º´æ£¬²»ÔÚ·¶Î§ÄÚ²»»á½øÐÐ»º´æ¶øÊÇÖ±½Ónew
+		 * æ€»ç»“:intå’Œintegerçš„åŒºåˆ«
+		 * 1.integerä¸ºintçš„åŒ…è£…ç±»
+		 * 2.intå’Œintegerè¿›è¡Œæ¯”å¯¹çš„æ—¶å€™éƒ½ä¸ºtrueï¼Œå½“ç„¶æ˜¯èµ‹å€¼ä¸ºåŒä¸€ä¸ªæ•°å­—æ—¶
+		 * 3.integerç›´æŽ¥èµ‹å€¼å’Œnewå‡ºæ¥è¿›è¡Œæ¯”å¯¹ä¸ºfalseï¼Œå‰è€…å­˜åˆ°å †åŽè€…å­˜åˆ°å†…å­˜
+		 * 4.integerè¿›è¡Œæ¯”å¯¹åœ¨-128~127ä¹‹é—´ä¸ºtrueå…¶ä½™ä¸ºfalseï¼Œåœ¨èŒƒå›´å†…integerä¼šè¿›è¡Œç¼“å­˜ï¼Œä¸åœ¨èŒƒå›´å†…ä¸ä¼šè¿›è¡Œç¼“å­˜è€Œæ˜¯ç›´æŽ¥new
 		 */
 	}
 }

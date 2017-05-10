@@ -2,16 +2,15 @@ package com.luhan.entity;
 
 /** 
 * @ClassName: TestDatePagingEntity 
-* @Description: (Õâ¸öÊÇÓÃÓÚ²âÊÔList·ÖÒ³Ê¹ÓÃµ½µÄÊµÌåÀà) 
+* @Description: (è¿™ä¸ªæ˜¯ç”¨äºæµ‹è¯•Liståˆ†é¡µä½¿ç”¨åˆ°çš„å®ä½“ç±») 
 * @author Luhan 
-* @date 2017Äê3ÔÂ18ÈÕ ÏÂÎç7:51:22 
-*  
+* @date 2017å¹´3æœˆ18æ—¥ ä¸‹åˆ7:51:22 
 */
-public class TestDatePagingEntity {
+public class TestDatePagingEntity{
 	
-	private String name;//StingÀàĞÍµÄĞÕÃû
-	private String sex;//StingÀàĞÍµÄĞÔ±ğ
-	private int age;//intÀàĞÍµÄÄêÁä
+	private String name;//Stingç±»å‹çš„å§“å
+	private String sex;//Stingç±»å‹çš„æ€§åˆ«
+	private int age;//intç±»å‹çš„å¹´é¾„
 	
 	public String getName() {
 		return name;

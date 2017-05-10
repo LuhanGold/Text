@@ -9,36 +9,36 @@ import com.luhan.costom.CustomException;
 
 /** 
 * @ClassName: Utils 
-* @Description: (ÈÕÆÚ¹¤¾ßÀà) 
+* @Description: (æ—¥æœŸå·¥å…·ç±») 
 * @author Luhan 
-* @date 2017Äê3ÔÂ18ÈÕ ÏÂÎç4:39:44 
+* @date 2017å¹´3æœˆ18æ—¥ ä¸‹åˆ4:39:44 
 *  
 */
 public class DateUtils {
-	//ÉèÖÃ¾²Ì¬µÄSimpleDateFormat¶ÔÏó
+	//è®¾ç½®é™æ€çš„SimpleDateFormatå¯¹è±¡
 	private static SimpleDateFormat format;
 	
 	
 	
 	/**
-	 * Ä¬ÈÏ×ª»»ÈÕÆÚµÄ·½·¨£¬²»´ø²ÎÊı´ú±íĞèÒª×ª»»µÄ¸ñÊ½Îª"yyyy-MM-dd HH:mm:ss";
-	 * @return ×ª»»Íê³ÉºóµÄÈÕÆÚ¸ñÊ½£¬×Ö·û´®ÀàĞÍµÄ
+	 * é»˜è®¤è½¬æ¢æ—¥æœŸçš„æ–¹æ³•ï¼Œä¸å¸¦å‚æ•°ä»£è¡¨éœ€è¦è½¬æ¢çš„æ ¼å¼ä¸º"yyyy-MM-dd HH:mm:ss";
+	 * @return è½¬æ¢å®Œæˆåçš„æ—¥æœŸæ ¼å¼ï¼Œå­—ç¬¦ä¸²ç±»å‹çš„
 	 */
 	public static String formDate(){
-		//»ñµÃÏµÍ³µ±Ç°Ê±¼ä
+		//è·å¾—ç³»ç»Ÿå½“å‰æ—¶é—´
 		Date date = new Date(System.currentTimeMillis());
-		//»ñÈ¡format¶ÔÏó£¬²¢ÉèÖÃformat¶ÔÏóÒª×ª»¯ÈÕÆÚµÄ¸ñÊ½
+		//è·å–formatå¯¹è±¡ï¼Œå¹¶è®¾ç½®formatå¯¹è±¡è¦è½¬åŒ–æ—¥æœŸçš„æ ¼å¼
 		format = new SimpleDateFormat(Constant.DATE_FORMAT);
 		
 		return format.format(date);
 	}
 	
 	/**
-	 * Í¨¹ı´«ÈëĞèÒª×ª»»³ÉÊ²Ã´ÑùµÄÈÕÆÚ¸ñÊ½µÄ·½·¨
-	 * @param dateFormat ĞèÒª×ª»»³ÉÊ²Ã´ÑùµÄ¸ñÊ½
-	 * @param tolerant Ä¬ÈÏµÄ¸ñÊ½
-	 * @return ·µ»Ø×ª»»³É¹¦Ö®ºóµÄ×Ö·û´®
-	 * @throws CustomException »áÅ×³önullºÍ""Òì³£
+	 * é€šè¿‡ä¼ å…¥éœ€è¦è½¬æ¢æˆä»€ä¹ˆæ ·çš„æ—¥æœŸæ ¼å¼çš„æ–¹æ³•
+	 * @param dateFormat éœ€è¦è½¬æ¢æˆä»€ä¹ˆæ ·çš„æ ¼å¼
+	 * @param tolerant é»˜è®¤çš„æ ¼å¼
+	 * @return è¿”å›è½¬æ¢æˆåŠŸä¹‹åçš„å­—ç¬¦ä¸²
+	 * @throws CustomException ä¼šæŠ›å‡ºnullå’Œ""å¼‚å¸¸
 	 */
 	public static String formDate(String dateFormat,String tolerant) throws CustomException{
 		if(dateFormat == null || dateFormat.equalsIgnoreCase("")){
@@ -52,43 +52,43 @@ public class DateUtils {
 			throw new CustomException(CustomException.NULLVALUEEXCEPTION);
 		}
 		
-		//»ñµÃÏµÍ³µ±Ç°Ê±¼ä
+		//è·å¾—ç³»ç»Ÿå½“å‰æ—¶é—´
 		Date date = new Date(System.currentTimeMillis());
-		//»ñÈ¡format¶ÔÏó£¬²¢ÉèÖÃformat¶ÔÏóÒª×ª»¯ÈÕÆÚµÄ¸ñÊ½
+		//è·å–formatå¯¹è±¡ï¼Œå¹¶è®¾ç½®formatå¯¹è±¡è¦è½¬åŒ–æ—¥æœŸçš„æ ¼å¼
 		format = new SimpleDateFormat(dateFormat);
 		
 		return format.format(date);
 	}
 	
 	/**
-	 * ½«Ê±¼ä´Á×ª»¯ÎªÈÕÆÚ
+	 * å°†æ—¶é—´æˆ³è½¬åŒ–ä¸ºæ—¥æœŸ
 	 * @param timesStamp
-	 * @return ×ª»¯Ö®ºóµÄÈÕÆÚ£¬¸ñÊ½ÎªString
+	 * @return è½¬åŒ–ä¹‹åçš„æ—¥æœŸï¼Œæ ¼å¼ä¸ºString
 	 */
 	public static String timesStampToDate(Long timesStamp){
-		//ĞèÒª×ª»¯ÎªÊ²Ã´ÀàĞÍ
+		//éœ€è¦è½¬åŒ–ä¸ºä»€ä¹ˆç±»å‹
 		format = new SimpleDateFormat(Constant.DATE_FORMAT);
-		//½«²ÎÊıÊ±¼ä´Á½øĞĞ×ª»»
+		//å°†å‚æ•°æ—¶é—´æˆ³è¿›è¡Œè½¬æ¢
 		String time = format.format(timesStamp);
 		return time;
 	}
 	
 	/**
-	 * ½«Ö¸¶¨µÄÈÕÆÚ×ª»¯ÎªÊ±¼ä´Á
-	 * @param date Ö¸¶¨µÄÈÕÆÚ
-	 * @return ×ª»¯Ö®ºóµÄ½á¹û
-	 * @throws ParseException ¿ÉÄÜ»áÅ×³ö´«ÈëµÄ²»ÊÇÕıÈ·¸ñÊ½µÄÈÕÆÚ
+	 * å°†æŒ‡å®šçš„æ—¥æœŸè½¬åŒ–ä¸ºæ—¶é—´æˆ³
+	 * @param date æŒ‡å®šçš„æ—¥æœŸ
+	 * @return è½¬åŒ–ä¹‹åçš„ç»“æœ
+	 * @throws ParseException å¯èƒ½ä¼šæŠ›å‡ºä¼ å…¥çš„ä¸æ˜¯æ­£ç¡®æ ¼å¼çš„æ—¥æœŸ
 	 */
 	public static Long dateToTimestamp(String date) throws ParseException{
 		format = new SimpleDateFormat(Constant.DATE_FORMAT);
 		Date d = format.parse(date);
 		return d.getTime()/1000;
 	}
-	/**½«ÖÆ¶¨ÈÕÆÚ£¬ÖÆ¶¨ÈÕÆÚµÄ¸ñÊ½×ª»¯ÎªÊ±¼ä´Á
+	/**å°†åˆ¶å®šæ—¥æœŸï¼Œåˆ¶å®šæ—¥æœŸçš„æ ¼å¼è½¬åŒ–ä¸ºæ—¶é—´æˆ³
 	 * @author luhan
-	 * @param date Ê±¼ä
-	 * @param dataFormat Ê±¼äµÄ¸ñÊ½
-	 * @return ·µ»Ø×ª»¯ÎªÊ±¼ä´ÁµÄ×Ö·û´®
+	 * @param date æ—¶é—´
+	 * @param dataFormat æ—¶é—´çš„æ ¼å¼
+	 * @return è¿”å›è½¬åŒ–ä¸ºæ—¶é—´æˆ³çš„å­—ç¬¦ä¸²
 	 * @throws ParseException
 	 */
 	public static Long dateToTimestamp(String date,String dataFormat) throws ParseException{

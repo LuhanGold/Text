@@ -5,10 +5,8 @@ package com.luhan.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -17,28 +15,28 @@ import java.util.List;
 
 import com.luhan.entity.HttpParam;
 
-/**@Description {ÍøÂç¹¤¾ßÀà}
+/**@Description {ç½‘ç»œå·¥å…·ç±»}
  * @author luhan
- * @date   2017Äê4ÔÂ9ÈÕ ÉÏÎç10:33:54
+ * @date   2017å¹´4æœˆ9æ—¥ ä¸Šåˆ10:33:54
  */
 public class NetWorkUtils {
 	
 	private static URL httpUrl = null;
 	private static URLConnection connection = null;
-	//Æ´½ÓÇëÇó²ÎÊı
+	//æ‹¼æ¥è¯·æ±‚å‚æ•°
 	private static StringBuffer wBuffer = new StringBuffer();
-	//½ÓÊÕ·µ»Ø½á¹û
+	//æ¥æ”¶è¿”å›ç»“æœ
 	private static StringBuffer result = new StringBuffer();
-	//´´½¨¶ÁÈ¡¶ÔÏó
+	//åˆ›å»ºè¯»å–å¯¹è±¡
 	private static BufferedReader reader = null;
 	
 	
 	
 	/**
-	 * ³õÊ¼»¯ÍøÂçÇëÇóÀà
+	 * åˆå§‹åŒ–ç½‘ç»œè¯·æ±‚ç±»
 	 * @author luhan
-	 * @param url ÇëÇóµÄµØÖ·
-	 * @return ·µ»Ø½¨Á¢Á¬½ÓµÄconnection
+	 * @param url è¯·æ±‚çš„åœ°å€
+	 * @return è¿”å›å»ºç«‹è¿æ¥çš„connection
 	 * @throws IOException
 	 */
 	private static URLConnection init(String url) throws IOException{
@@ -58,20 +56,20 @@ public class NetWorkUtils {
 	}
 	
 	public static String getJsonByURL(String url,List<HttpParam> params) throws IOException{
-		//µ÷ÓÃ³õÊ¼»¯·½·¨»ñµÃÁ¬½Ó¶ÔÏó
+		//è°ƒç”¨åˆå§‹åŒ–æ–¹æ³•è·å¾—è¿æ¥å¯¹è±¡
 		connection = init(url);
-		//´´½¨²ÎÊıĞ´¶ÔÏó,Í¨¹ıÁ¬½Ó¶ÔÏóµÄÊä³öÁ÷»ñµÃ
+		//åˆ›å»ºå‚æ•°å†™å¯¹è±¡,é€šè¿‡è¿æ¥å¯¹è±¡çš„è¾“å‡ºæµè·å¾—
 		PrintWriter printWriter = new PrintWriter(connection.getOutputStream());
 		if(params == null){
 			params = new ArrayList<>();
 		}
-		//½«²ÎÊıÒÔpost·½Ê½Ğ´ÈëÁ¬½Ó¶ÔÏóÖĞ
+		//å°†å‚æ•°ä»¥postæ–¹å¼å†™å…¥è¿æ¥å¯¹è±¡ä¸­
 		if(params.size() > 0){
 			for (int i = 0; i < params.size(); i++) {
 				wBuffer.append(params.get(i).getKey())
 				.append("=")
 				.append(URLEncoder.encode(params.get(i).getValue(),"utf-8"));
-				//Èç¹û²»ÊÇ×îºóÒ»¸ö²ÎÊı¾ÍÆ´½ÓÒ»¸ö&
+				//å¦‚æœä¸æ˜¯æœ€åä¸€ä¸ªå‚æ•°å°±æ‹¼æ¥ä¸€ä¸ª&
 				if((i+1) < params.size()){
 					wBuffer.append("&");
 				}
@@ -80,9 +78,9 @@ public class NetWorkUtils {
 		printWriter.println(wBuffer.toString());
 		printWriter.flush();
 		connection.connect();
-		//½ÓÊÕ·şÎñÆ÷·µ»ØµÄ½á¹û
+		//æ¥æ”¶æœåŠ¡å™¨è¿”å›çš„ç»“æœ
 		reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-		//¶ÁÈ¡µ½µÄĞĞ
+		//è¯»å–åˆ°çš„è¡Œ
 		String line;
 		while((line = reader.readLine())!= null){
 			result.append(line);

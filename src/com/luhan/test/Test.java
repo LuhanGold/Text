@@ -1,17 +1,13 @@
 package com.luhan.test;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import com.luhan.Constant;
-import com.luhan.costom.CustomException;
 import com.luhan.entity.TestDatePagingEntity;
 import com.luhan.utils.DataUtils;
 import com.luhan.utils.DateUtils;
-import com.luhan.utils.FileUtils;
 
 /** 
 * @ClassName: Test 
@@ -27,12 +23,57 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
-			 FileUtils.writeFile("E:\\1.txt","haha");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		System.out.println(Integer.MAX_VALUE);
+		
+//		String str = "123";
+//		System.out.println("加密后的字符串为："+DataUtils.encrypt(str));
+//		System.out.println("解密后的字符串为:"+DataUtils.decode(DataUtils.encrypt(str)));
+//		System.out.println("解密后的字符串跟真实的字符串相等吗？"+str.equals(DataUtils.decode(DataUtils.encrypt(str))));
+		
+		
+		
+		
+//		try {
+//			long a = DateUtils.dateToTimestamp("2017-04-13",Constant.DATE_FORMATTIME);
+//			long b = DateUtils.dateToTimestamp("2017-04-13 10:22:45");
+//			System.out.println(b>a);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+		
+		//http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42
+		
+//		try {
+//			String result = NetWorkUtils.getJsonByURL("http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42", null);
+//			
+//			System.out.println("\u7f8e\u56fd");
+//			//result = result.replaceAll("country", "城市");
+//			result = result.replaceAll("country_id", "城市id");
+//			System.out.println(result);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		
+		
+		
+		
+//		System.out.println(DataUtils.isCordID("440105199902010065"));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		try {
+//			 FileUtils.writeFile("E:\\1.txt","haha");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 		
@@ -44,7 +85,6 @@ public class Test {
 //			files = FileUtils.getFilesBySuffixName(filePath, ".txt");
 //			System.out.println("jpg的数量是:"+files.length);
 //		} catch (CustomException e) {
-//			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
 		//百分比值

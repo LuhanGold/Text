@@ -2,9 +2,9 @@ package com.luhan.costom;
 
 /** 
 * @ClassName: CustomException 
-* @Description: (×Ô¶¨ÒåÒì³£Àà£¬ÓÃÀ´ÊµÏÖ¸÷ÖÖÊı¾İµÄÒì³£) 
+* @Description: (è‡ªå®šä¹‰å¼‚å¸¸ç±»ï¼Œç”¨æ¥å®ç°å„ç§æ•°æ®çš„å¼‚å¸¸) 
 * @author Luhan 
-* @date 2017Äê3ÔÂ18ÈÕ ÏÂÎç4:58:48 
+* @date 2017å¹´3æœˆ18æ—¥ ä¸‹åˆ4:58:48 
 *  
 */
 public class CustomException extends Exception{
@@ -13,16 +13,16 @@ public class CustomException extends Exception{
 	
 	
 	/**
-	 * ¶ÔÏó²»ÄÜÎªnullÒì³£
+	 * å¯¹è±¡ä¸èƒ½ä¸ºnullå¼‚å¸¸
 	 */
-	public static final String NULLPOINTEXCEPTION = "¶ÔÏó²»ÄÜÎª¿Õ";
+	public static final String NULLPOINTEXCEPTION = "å¯¹è±¡ä¸èƒ½ä¸ºç©º";
 	/**
-	 * ¶ÔÏó²»ÄÜÎª""ÖµÒì³£
+	 * å¯¹è±¡ä¸èƒ½ä¸º""å€¼å¼‚å¸¸
 	 */
-	public static final String NULLVALUEEXCEPTION = "²»ÄÜÎª¿ÕÖµ";
+	public static final String NULLVALUEEXCEPTION = "ä¸èƒ½ä¸ºç©ºå€¼";
 	
 	/**
-	 * Òì³£ÀàµÄ¹¹Ôì·½·¨£¬´«ÈëÊÇÊ²Ã´Òì³£ĞÅÏ¢
+	 * å¼‚å¸¸ç±»çš„æ„é€ æ–¹æ³•ï¼Œä¼ å…¥æ˜¯ä»€ä¹ˆå¼‚å¸¸ä¿¡æ¯
 	 */
 	public CustomException(String meg){
 		super(meg);

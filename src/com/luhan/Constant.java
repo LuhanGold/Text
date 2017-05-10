@@ -2,21 +2,30 @@ package com.luhan;
 
 /** 
 * @ClassName: Constant 
-* @Description: (¶¨ÒåÓÃµ½µÄ³£Á¿) 
+* @Description: (å®šä¹‰ç”¨åˆ°çš„å…¨å±€å¸¸é‡) 
 * @author Luhan 
-* @date 2017Äê3ÔÂ18ÈÕ ÏÂÎç5:12:25 
+* @date 2017å¹´3æœˆ18æ—¥ ä¸‹åˆ5:12:25 
 *  
 */
-public class Constant {
-	
+public class Constant{
 	/**
-	 * ¶¨ÒåÒ»¹²ÓĞ10ÌõÊı¾İ
+	 * ç§æœ‰çš„æ„é€ æ–¹æ³•
+	 */
+	private Constant(){}
+	/**
+	 * å®šä¹‰ä¸€å…±æœ‰10æ¡æ•°æ®
 	 */
 	public static final int DATA_SIZE = 10;
 	
 	/**
-	 * ÉèÖÃÈÕÆÚ¸ñÊ½µÄ³£Á¿ yyyy-MM-dd HH:mm:ss
+	 * è®¾ç½®æ—¥æœŸæ ¼å¼çš„å¸¸é‡ yyyy-MM-dd HH:mm:ss
 	 */
 	public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+	/**
+	 * è®¾ç½®æ—¥æœŸæ ¼å¼çš„å¸¸é‡ yyyy-MM-dd
+	 */
+	public static final String DATE_FORMATTIME = "yyyy-MM-dd";
+	
+	public static final String ENCODING_UTF8 = "UTF-8";
 
 }

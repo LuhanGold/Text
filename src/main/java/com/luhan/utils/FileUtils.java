@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.luhan.costom.CustomException;
 
@@ -121,5 +123,23 @@ public class FileUtils {
 	 */
 	public static void writeFile(String filePath,String content) throws UnsupportedEncodingException, IOException{
 		writeFile(filePath,content,true);
+	}
+
+	/**
+	 * 获取指定文件路径下的所有文件
+	 * @param directoryPath 文件夹
+	 */
+	public static List<File> getFilesByDirectory(String directoryPath){
+		List<File> datas = new ArrayList<>();
+		File file = new File(directoryPath);
+		if(file.isDirectory()){
+			File[] files = file.listFiles();
+			for (File file1 : files) {
+				datas.addAll(getFilesByDirectory(file1.getAbsolutePath()));
+			}
+		}else{
+			datas.add(file);
+		}
+		return datas;
 	}
 }

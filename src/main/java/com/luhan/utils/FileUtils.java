@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.luhan.costom.CustomException;
+import com.luhan.custom.CustomException;
 
 /**@effect {文件相关的工具类}
  * @author luhan

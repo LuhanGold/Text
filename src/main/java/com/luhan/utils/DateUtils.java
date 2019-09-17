@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.luhan.Constant;
-import com.luhan.costom.CustomException;
+import com.luhan.custom.CustomException;
 
 /** 
 * @ClassName: Utils 
@@ -29,7 +29,6 @@ public class DateUtils {
 		Date date = new Date(System.currentTimeMillis());
 		//获取format对象，并设置format对象要转化日期的格式
 		format = new SimpleDateFormat(Constant.DATE_FORMAT);
-		
 		return format.format(date);
 	}
 	

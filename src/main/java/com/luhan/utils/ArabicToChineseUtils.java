@@ -10,21 +10,13 @@ package com.luhan.utils;
 public class ArabicToChineseUtils {
 	static String[] units = { "", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿" };
     static char[] numArray = { '零', '一', '二', '三', '四', '五', '六', '七', '八', '九' };
-//    public static void main(String[] args) {
-//        int num = 245000006;
-//        String numStr = foematInteger(1);
-//        System.out.println("num= " + num + ", convert result: " + numStr);
-//        double decimal = 245006.234206;
-//        System.out.println("============================================================");
-//        String decStr = formatDecimal(decimal);
-//        System.out.println("decimal= " + decimal + ", decStr: " + decStr);
-//    }
+
     /**
      * 将阿拉伯数字转化为汉字
      * @param num 需要转化的阿拉伯数字
      * @return 返回经过转化之后对应的汉字
      */
-    private static String foematInteger(int num) {
+    public static String foematInteger(int num) {
         char[] val = String.valueOf(num).toCharArray();
         int len = val.length;
         StringBuilder sb = new StringBuilder();
@@ -48,8 +40,8 @@ public class ArabicToChineseUtils {
         }
         return sb.toString();
     }
-    @SuppressWarnings("unused")
-    private static String formatDecimal(double decimal) {
+
+    public static String formatDecimal(double decimal) {
         String decimals = String.valueOf(decimal);
         int decIndex = decimals.indexOf(".");
         int integ = Integer.valueOf(decimals.substring(0, decIndex));
@@ -57,7 +49,8 @@ public class ArabicToChineseUtils {
         String result = foematInteger(integ) + "." + formatFractionalPart(dec);
         return result;
     }
-    private static String formatFractionalPart(int decimal) {
+
+    public static String formatFractionalPart(int decimal) {
         char[] val = String.valueOf(decimal).toCharArray();
         int len = val.length;
         StringBuilder sb = new StringBuilder();

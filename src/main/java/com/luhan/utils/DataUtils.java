@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.luhan.Constant;
-import com.luhan.costom.CustomException;
+import com.luhan.custom.CustomException;
 import com.luhan.enums.ObjType;
 
 /** 

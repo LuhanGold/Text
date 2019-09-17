@@ -86,13 +86,6 @@ public class NetWorkUtils {
 			result.append(line);
 		}
 		reader.close();
-		
-		
-		
-		
-		
-		
 		return result.toString();
-		
 	}
 }

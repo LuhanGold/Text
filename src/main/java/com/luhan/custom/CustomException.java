@@ -1,4 +1,4 @@
-package com.luhan.costom;
+package com.luhan.custom;
 
 /** 
 * @ClassName: CustomException 

@@ -52,7 +52,7 @@ public class DataUtils {
 	 * @param dataSize 显示多少条数据
 	 * @return 进过分页之后返回的数据
 	 */
-	public static <F> List<F> datepaging(List<F> f,int pageNo,int dataSize){
+	public static <F> List<F> datePaging(List<F> f,int pageNo,int dataSize){
 		/*
 		 * 经过测试发现当pageNo为0或者小于时，也就是第0页时，程序会报错，所以需要处理一下pageNo的值
 		 * 

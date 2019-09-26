@@ -12,6 +12,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.luhan.Constant;
 import com.luhan.custom.CustomException;
@@ -223,7 +225,7 @@ public class DataUtils {
 	 * @param cardID 身份证字符串
 	 * @return true为是身份证，false为不是身份证
 	 */
-	public static boolean isCordID(String cardID){
+	public static boolean isCardID(String cardID){
 	      // 对身份证号进行长度等简单判断
 	      if (cardID == null || cardID.length() != 18 || !cardID.matches("\\d{17}[0-9X]")){
 	         return false;
@@ -713,5 +715,17 @@ public class DataUtils {
 			return result_D;
 		}
 		return obj;
+	}
+
+	/**
+	 * 从字符串中获取数字
+	 */
+	public static int getNumber(String str){
+		Pattern pattern = Pattern.compile("\\d+");
+		Matcher matcher = pattern.matcher(str);
+		while (matcher.find()) {
+			return Integer.parseInt(matcher.group(0));
+		}
+		return 0;
 	}
 }

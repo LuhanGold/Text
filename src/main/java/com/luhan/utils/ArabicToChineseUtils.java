@@ -16,7 +16,7 @@ public class ArabicToChineseUtils {
      * @param num 需要转化的阿拉伯数字
      * @return 返回经过转化之后对应的汉字
      */
-    public static String foematInteger(int num) {
+    public static String formatInteger(int num) {
         char[] val = String.valueOf(num).toCharArray();
         int len = val.length;
         StringBuilder sb = new StringBuilder();
@@ -44,9 +44,9 @@ public class ArabicToChineseUtils {
     public static String formatDecimal(double decimal) {
         String decimals = String.valueOf(decimal);
         int decIndex = decimals.indexOf(".");
-        int integ = Integer.valueOf(decimals.substring(0, decIndex));
+        int integer = Integer.valueOf(decimals.substring(0, decIndex));
         int dec = Integer.valueOf(decimals.substring(decIndex + 1));
-        String result = foematInteger(integ) + "." + formatFractionalPart(dec);
+        String result = formatInteger(integer) + "." + formatFractionalPart(dec);
         return result;
     }
 

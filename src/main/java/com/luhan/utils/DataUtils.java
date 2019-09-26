@@ -75,7 +75,7 @@ public class DataUtils {
 			pageNo = 1;
 		}
 		//记录一下数据一共有多少条
-		int totalitems = f.size();
+		int totalItems = f.size();
 		//实例化一个接受分页处理之后的数据
 		List<F> afterList = new ArrayList<F>();
 		/*
@@ -88,8 +88,7 @@ public class DataUtils {
 		 * 然后让i++
 		 */
 		for( int i = (pageNo-1)*dataSize; 
-		  i < (((pageNo -1)*dataSize) + dataSize > 
-		  totalitems ? totalitems:((pageNo -1)*dataSize) +dataSize);
+		  i < (((pageNo -1)*dataSize) + dataSize > totalItems ? totalItems:((pageNo -1)*dataSize) +dataSize);
 				i++) {
 			//然后将数据存入afterList中
 			
@@ -102,15 +101,15 @@ public class DataUtils {
 	/**
 	 * 求出一共有多少页
 	 * @param dataSize 需要显示多少条数据
-	 * @param totalTiems 一共有多少条数据
+	 * @param totalItems 一共有多少条数据
 	 * @return 一共有多少页,int类型
 	 */
-	public static int getPageSize(int dataSize,int totalTiems){
+	public static int getPageSize(int dataSize,int totalItems){
 		
 		/*
 		 * 使用总条数除以显示条数然后向上取整数就是一共有多少页了
 		 */
-		double result = (double)totalTiems / (double)dataSize;
+		double result = (double)totalItems / (double)dataSize;
 		//进行向上取整
 		result = Math.ceil(result);
 		
@@ -242,6 +241,7 @@ public class DataUtils {
 	      // 判断随机码是否相等
 	      return random[total % 11] == cardID.charAt(17);
 	}
+
 	/**将多个数组合并成一个数组
 	 * @author luhan
 	 * @param firstAry 
@@ -262,43 +262,6 @@ public class DataUtils {
 		    System.arraycopy(array, 0, result, offset, array.length);
 		    offset += array.length;  
 		}
-		return result;
-	}
-	
-	/**解析properties文件获得里面的内容
-	 * @author luhan
-	 * @param propertiesPath
-	 * @return 返回键值对的map集合，key就是pro文件左边的值，value就是pro文件右边的值
-	 * @throws IOException 
-	 */
-	public static Map<String, String> parseProperties(String propertiesPath) throws IOException{
-		//创建一个返回结果的map集合
-		Map<String, String> result = new LinkedHashMap<String,String>();
-		//参数校验
-		if(isEmpty(propertiesPath)){
-			return result;
-		}
-		//新建一个pro文件对象
-		Properties properties = new Properties();
-		//新建一个输入流
-		FileInputStream in = new FileInputStream(propertiesPath);
-		//新建一个输入读流
-		InputStreamReader reader = new InputStreamReader(in,Constant.ENCODING_UTF8);
-		//调用加载方法，需要一个输入流
-		properties.load(reader);
-		//得到pro文件里面的每一行内容
-		Enumeration<?> en = properties.propertyNames();
-		//根据读到的内容循环获取数据
-		while(en.hasMoreElements()){
-			//得到每一行的键
-			String key = (String) en.nextElement();
-			//得到每一行键对应的值
-			String value = properties.getProperty(key);
-			
-			//存入map中
-			result.put(key, value);
-		}
-		//最后将result返回
 		return result;
 	}
 	
@@ -456,16 +419,16 @@ public class DataUtils {
 		char[] chars = orgStr.toCharArray();
 		int index = 0;
 		String str = "";
-		String [] strs = new String[orgStr.length()/3];
+		String [] strings = new String[orgStr.length()/3];
 		for(int i = 0;i<chars.length;i++){
 			str += chars[i]; 
 			if(((i+1)%3) == 0){
-				strs[index] = str;
+				strings[index] = str;
 				index++;
 				str = "";
 			}
 		}
-		return shift(strs);
+		return shift(strings);
 	}
 	/**将加密后的字符串进行解密
 	 * @author luhan
@@ -646,11 +609,11 @@ public class DataUtils {
 		//判断传入的list的长度是否小于等于要截取的长度，如果满足就直接return
 		if(list.size() <= cutLength) return list;
 		//调用Arrays的copyOfRange对list进行截取操作
-		Object[] objs = Arrays.copyOfRange(list.toArray(), 0, cutLength);
+		Object[] objects = Arrays.copyOfRange(list.toArray(), 0, cutLength);
 		//截取完之后将list集合进行清空，然后重新赋值
 		list.clear();
 		//循环Arrays截取的内容，再将内容一一添加到list中
-		for(Object obj : objs){
+		for(Object obj : objects){
 			list.add(obj);
 		}
 		return list;
@@ -670,7 +633,7 @@ public class DataUtils {
 			String[] value_S = (String[]) obj;
 			if(value_S.length <= cutLength) return value_S;
 			for(int i =0;i<cutLength;i++){
-				result_S[i] = (String) value_S[i];
+				result_S[i] = value_S[i];
 			}
 			return result_S;
 		case O:

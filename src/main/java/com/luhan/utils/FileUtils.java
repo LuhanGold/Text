@@ -71,14 +71,14 @@ public class FileUtils {
 		//用来存储文件里面读取的内容
 		StringBuffer content = new StringBuffer();
 		//用来保存文件读取的一行内容
-		String tempstr = "";
+		String tempStr = "";
 		//文件读取流
 		FileInputStream inputStream = new FileInputStream(file);
 		//文件读取操作对象流,设置读取的编码格式为GBK
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream,"GBK"));
 		//循环读取，如果当读取到的内容为null是就停止读取
-		while((tempstr=reader.readLine()) != null){
-			content.append(tempstr);
+		while((tempStr=reader.readLine()) != null){
+			content.append(tempStr);
 		}
 		
 		//关闭读取流
@@ -130,16 +130,16 @@ public class FileUtils {
 	 * @param directoryPath 文件夹
 	 */
 	public static List<File> getFilesByDirectory(String directoryPath){
-		List<File> datas = new ArrayList<>();
+		List<File> fileList = new ArrayList<>();
 		File file = new File(directoryPath);
 		if(file.isDirectory()){
 			File[] files = file.listFiles();
 			for (File file1 : files) {
-				datas.addAll(getFilesByDirectory(file1.getAbsolutePath()));
+				fileList.addAll(getFilesByDirectory(file1.getAbsolutePath()));
 			}
 		}else{
-			datas.add(file);
+			fileList.add(file);
 		}
-		return datas;
+		return fileList;
 	}
 }

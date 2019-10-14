@@ -35,3 +35,6 @@
 
 ## PropertiesUtils(properties文件的工具类)
 1. parseProperties:读取pro文件内容
+
+## VideoProcessing(视频文件工具类)
+1. **grabberVideoFramer:获取视频的第五帧图片**

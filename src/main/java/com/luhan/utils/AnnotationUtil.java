@@ -56,6 +56,7 @@ public class AnnotationUtil {
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
+    @SuppressWarnings("unchecked")
     public static void updateAnnotationValue(Annotation annotation,String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
         InvocationHandler invocationHandler = Proxy.getInvocationHandler(annotation);
         // 过去私有 memberValues 属性

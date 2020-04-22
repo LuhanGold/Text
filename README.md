@@ -29,6 +29,7 @@
 2. readFile:读取txt文件里面的内容
 3. writeFile:将内容写出到文件中
 4. **getFilesByDirectory:获取指定文件路径下的所有文件**
+5. **rejectCharacter:移除文件名称中指定的字符**
 
 ## NetWorkUtils(网络工具类)
 1. getJsonByURL:获取网络上的JSON数据
@@ -38,3 +39,6 @@
 
 ## VideoProcessing(视频文件工具类)
 1. **grabberVideoFramer:获取视频的第五帧图片**
+
+## SortUtil(排序工具类)
+1. naturalSort:对含有数字+字母组合的方式进行自然排序

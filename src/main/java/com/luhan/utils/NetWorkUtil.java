@@ -19,7 +19,7 @@ import com.luhan.entity.HttpParam;
  * @author luhan
  * @date   2017年4月9日 上午10:33:54
  */
-public class NetWorkUtils {
+public class NetWorkUtil {
 	
 	private static URL httpUrl = null;
 	private static URLConnection connection = null;

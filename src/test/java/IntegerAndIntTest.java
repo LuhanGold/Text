@@ -1,5 +1,4 @@
-package com.luhan.test;
-/** 
+/**
 * @ClassName: IntegerAndIntTest 
 * @Description: (用于对比int和Intger的区别) 
 * @author Luhan 

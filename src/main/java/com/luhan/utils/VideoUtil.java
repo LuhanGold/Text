@@ -16,8 +16,8 @@ import java.util.UUID;
  * @create 2019-10-14 17:19
  * @since 1.0.0
  */
-public class VideoProcessing {
-    //存放截取视频某一帧的图片
+public class VideoUtil {
+    /**存放截取视频某一帧的图片*/
     public static String videoFramesPath = "F:\\test\\img/";
 
     /**

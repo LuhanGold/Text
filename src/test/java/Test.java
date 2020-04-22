@@ -1,13 +1,11 @@
-package com.luhan.test;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import com.luhan.Constant;
 import com.luhan.entity.TestDatePagingEntity;
-import com.luhan.utils.DataUtils;
-import com.luhan.utils.DateUtils;
+import com.luhan.utils.DataUtil;
+import com.luhan.utils.DateUtil;
 
 /** 
 * @ClassName: Test 
@@ -135,7 +133,7 @@ public class Test {
 			list_str.add(entity);
 		}
 		//添加完后调用数据工具类写的分页方法进行输出测试
-		List<TestDatePagingEntity> data = DataUtils.datepaging(list_str, 1, displayDataSize);
+		List<TestDatePagingEntity> data = DataUtil.datePaging(list_str, 1, displayDataSize);
 		//进行循环打印,使用迭代来进行打印
 		for (TestDatePagingEntity entity : data) {
 			System.out.println(entity.getName()+","+"我是"+entity.getSex()+"的,"+"今年"+entity.getAge()+"岁");
@@ -150,7 +148,7 @@ public class Test {
 		Date date = new Date();
 		Long timesStamp = date.getTime();
 		System.out.println("转化之前:" + timesStamp);
-		String result = DateUtils.timesStampToDate(timesStamp);
+		String result = DateUtil.timesStampToDate(timesStamp);
 		System.out.println("转化之后:" + result);
 	}
 	/**
@@ -161,7 +159,7 @@ public class Test {
 		String time = "2017-03-18 19:30:19";
 		System.out.println("转化之前:" + time);
 		try {
-			Long result = DateUtils.dateToTimestamp(time);
+			Long result = DateUtil.dateToTimestamp(time);
 			System.out.println("转化之后:" + result);
 		} catch (ParseException e) {
 			e.printStackTrace();

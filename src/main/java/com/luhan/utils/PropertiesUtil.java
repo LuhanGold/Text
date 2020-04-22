@@ -1,6 +1,7 @@
 package com.luhan.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,7 +11,8 @@ import java.util.Properties;
  * @author luhan
  * @date   2017年5月4日 上午11:09:12
  */
-public class PropertiesUtils {
+public class PropertiesUtil {
+	private PropertiesUtil(){}
 	
 	/**
 	 * @desic  {读取pro文件内容}
@@ -25,9 +27,10 @@ public class PropertiesUtils {
 		Map<String, String> result = new LinkedHashMap<String, String>();
 		try {
 			stream = new FileInputStream(proPath);
-			reader = new InputStreamReader(stream, "utf-8");
+			reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
 			pps.load(reader);
-			Enumeration<?> enum1 = pps.propertyNames();//得到配置文件的名字
+			//得到配置文件的名字
+			Enumeration<?> enum1 = pps.propertyNames();
 			while (enum1.hasMoreElements()) {
 				String strKey = (String) enum1.nextElement();
 				String strValue = pps.getProperty(strKey);

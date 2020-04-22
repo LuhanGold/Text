@@ -26,6 +26,13 @@
             <version>4.0.2-1.4.3</version>
         </dependency>
         <!--end:视频获取某一帧的图片-->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

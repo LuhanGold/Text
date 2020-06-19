@@ -22,7 +22,7 @@ public class AnnotationUtil {
      * @param propertyName 注解属性
      * @param value 修改后的值
      */
-    public static void updateAnnotationValue(Class obj, Class annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
+    public static void updateAnnotationValue(Class<?> obj, Class<? extends Annotation> annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
         updateAnnotationValue(obj.getAnnotation(annotation),propertyName, value);
     }
 
@@ -33,7 +33,7 @@ public class AnnotationUtil {
      * @param propertyName 注解属性
      * @param value 修改后的值
      */
-    public static void updateMethodAnnotationValue(Method method , Class annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
+    public static void updateMethodAnnotationValue(Method method , Class<? extends Annotation> annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
         updateAnnotationValue(method.getAnnotation(annotation),propertyName, value);
     }
 
@@ -44,7 +44,7 @@ public class AnnotationUtil {
      * @param propertyName 注解属性
      * @param value 修改后的值
      */
-    public static void updateFieldAnnotationValue(Field field , Class annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
+    public static void updateFieldAnnotationValue(Field field , Class<? extends Annotation> annotation, String propertyName, Object value) throws NoSuchFieldException, IllegalAccessException {
         updateAnnotationValue(field.getAnnotation(annotation),propertyName, value);
     }
 

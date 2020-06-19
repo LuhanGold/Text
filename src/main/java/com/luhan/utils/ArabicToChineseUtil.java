@@ -1,15 +1,15 @@
 /**
- * 
+ *
  */
 package com.luhan.utils;
 
 /**@effect {阿拉伯数字转化为汉字的工具类}
  * @author luhan
- * @date   2017年3月23日 下午6:09:58
+ * @date 2017年3月23日 下午6:09:58
  */
 public class ArabicToChineseUtil {
-	static String[] units = { "", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿" };
-    static char[] numArray = { '零', '一', '二', '三', '四', '五', '六', '七', '八', '九' };
+    static String[] units = {"", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿"};
+    static char[] numArray = {'零', '一', '二', '三', '四', '五', '六', '七', '八', '九'};
 
     /**
      * 将阿拉伯数字转化为汉字

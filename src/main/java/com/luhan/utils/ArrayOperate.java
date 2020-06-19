@@ -14,33 +14,36 @@ public class ArrayOperate {
 
     /**
      * 求两个集合的并集
+     *
      * @param list1
      * @param list2
      * @return
      */
-    public static <T> List<T> union(List<T> list1,List<T> list2){
+    public static <T> List<T> union(List<T> list1, List<T> list2) {
         list1.addAll(list2);
         return list1;
     }
 
     /**
      * 求两个集合的交集
+     *
      * @param list1
      * @param list2
      * @return
      */
-    public static <T> List<T> intersection(List<T> list1,List<T> list2){
+    public static <T> List<T> intersection(List<T> list1, List<T> list2) {
         list1.retainAll(list2);
         return list1;
     }
 
     /**
      * 求两个集合的差集
+     *
      * @param list1
      * @param list2
      * @return
      */
-    public static <T> List<T> difference(List<T> list1,List<T> list2){
+    public static <T> List<T> difference(List<T> list1, List<T> list2) {
         list1.removeAll(list2);
         return list1;
     }

@@ -1,22 +1,14 @@
 package com.luhan.utils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.luhan.enums.ObjType;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.luhan.Constant;
-import com.luhan.enums.ObjType;
 
 /**
  * @author Luhan

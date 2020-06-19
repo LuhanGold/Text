@@ -1,4 +1,4 @@
-package com.luhan.entity;
+package entity;
 
 /** 
 * @ClassName: TestDatePagingEntity 

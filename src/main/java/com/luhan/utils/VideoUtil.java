@@ -4,10 +4,7 @@ import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.UUID;
 
 /**
  * 〈视频文件相关工具类〉<br>
@@ -23,9 +20,9 @@ public class VideoUtil {
      * 依赖FrameToBufferedImage方法：将frame转换为bufferedImage对象
      *
      * @param videoFilePath 视频文件的路径
-     * @param frameNum 第几帧图片
+     * @param frameNum      第几帧图片
      */
-    public static BufferedImage grabberVideoFramer(String videoFilePath,int frameNum) throws Exception {
+    public static BufferedImage grabberVideoFramer(String videoFilePath, int frameNum) throws Exception {
         //Frame对象
         Frame frame = null;
         //标识
@@ -51,8 +48,8 @@ public class VideoUtil {
             }
         } catch (Exception e) {
             throw new Exception("文件可能已经损坏", e);
-        }finally {
-            if(null != fFmpegFrameGrabber){
+        } finally {
+            if (null != fFmpegFrameGrabber) {
                 fFmpegFrameGrabber.stop();
                 fFmpegFrameGrabber.close();
             }
@@ -62,6 +59,7 @@ public class VideoUtil {
 
     /**
      * 将Frame转换为图片
+     *
      * @param frame Frame
      * @return BufferedImage
      */

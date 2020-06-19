@@ -42,3 +42,8 @@
 
 ## SortUtil(排序工具类)
 1. naturalSort:对含有数字+字母组合的方式进行自然排序
+
+## ArrayOperate(集合操作工具类)
+1. union:求集合的并集
+2. intersection:求集合的交集
+3. difference:求集合的差集

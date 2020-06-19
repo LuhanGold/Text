@@ -17,61 +17,54 @@ import java.util.UUID;
  * @since 1.0.0
  */
 public class VideoUtil {
-    /**存放截取视频某一帧的图片*/
-    public static String videoFramesPath = "F:\\test\\img/";
 
     /**
-     * 将视频文件帧处理并以“jpg”格式进行存储。
+     * 获取视频文件的第几帧图片
      * 依赖FrameToBufferedImage方法：将frame转换为bufferedImage对象
      *
      * @param videoFilePath 视频文件的路径
+     * @param frameNum 第几帧图片
      */
-    public static String grabberVideoFramer(String videoFilePath) throws Exception {
-        //最后获取到的视频的图片的路径
-        String videoPicture = "";
+    public static BufferedImage grabberVideoFramer(String videoFilePath,int frameNum) throws Exception {
         //Frame对象
         Frame frame = null;
         //标识
         int flag = 0;
+        FFmpegFrameGrabber fFmpegFrameGrabber = null;
         try {
-			 /*
-            获取视频文件
-            */
-            FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(videoFilePath);
+            // 获取视频文件
+            fFmpegFrameGrabber = new FFmpegFrameGrabber(videoFilePath);
             fFmpegFrameGrabber.start();
 
             //获取视频总帧数
             int ftp = fFmpegFrameGrabber.getLengthInFrames();
-            System.out.println("时长 " + ftp / fFmpegFrameGrabber.getFrameRate());
 
             while (flag <= ftp) {
                 frame = fFmpegFrameGrabber.grabImage();
 				/*
 				对视频的第五帧进行处理
 				 */
-                if (frame != null && flag == 5) {
-                    //文件绝对路径+名字
-                    String fileName = videoFramesPath + UUID.randomUUID().toString() + "_" + String.valueOf(flag) + ".jpg";
-
-                    //文件储存对象
-                    File outPut = new File(fileName);
-                    ImageIO.write(FrameToBufferedImage(frame), "jpg", outPut);
-
-                    //视频第五帧图的路径
-                    String savedUrl = videoFramesPath + outPut.getName();
-                    videoPicture = savedUrl;
-                    break;
+                if (frame != null && flag == frameNum) {
+                    return FrameToBufferedImage(frame);
                 }
                 flag++;
             }
-            fFmpegFrameGrabber.stop();
-            fFmpegFrameGrabber.close();
         } catch (Exception e) {
             throw new Exception("文件可能已经损坏", e);
+        }finally {
+            if(null != fFmpegFrameGrabber){
+                fFmpegFrameGrabber.stop();
+                fFmpegFrameGrabber.close();
+            }
         }
-        return videoPicture;
+        return null;
     }
 
+    /**
+     * 将Frame转换为图片
+     * @param frame Frame
+     * @return BufferedImage
+     */
     public static BufferedImage FrameToBufferedImage(Frame frame) {
         //创建BufferedImage对象
         Java2DFrameConverter converter = new Java2DFrameConverter();

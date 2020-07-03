@@ -9,7 +9,7 @@ package com.luhan;
 public class Constant {
 
     /**
-     * 定义一共有10条数据
+     * 定义一共有10条数据,用于测试分页操作
      */
     public static final int DATA_SIZE = 10;
 
